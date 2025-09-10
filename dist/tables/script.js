@@ -107,8 +107,22 @@ function generateQuiz(table) {
             resultCell.innerHTML = `✅ Correct Answer: ${correctAnswer}`;
             resultCell.className = "correct";
             showBtn.disabled = true;
-            // Check if quiz is complete after showing answer
-            checkQuizCompletion(inputs, table);
+            // Check if all questions are answered after a short delay
+            setTimeout(() => {
+                const allInputs = quizContainer.querySelectorAll('input[type="number"]');
+                const allAnswered = Array.from(allInputs).every(inp => {
+                    const val = parseInt(inp.value);
+                    const answer = parseInt(inp.dataset.answer || "0");
+                    return val === answer;
+                });
+                if (allAnswered) {
+                    stopTimer();
+                    const elapsed = Date.now() - startTime;
+                    if (!usedHelp && elapsed <= 60000) {
+                        triggerCelebration();
+                    }
+                }
+            }, 50);
         });
         inputCell.appendChild(input);
         inputCell.appendChild(showBtn);
@@ -125,8 +139,22 @@ function generateQuiz(table) {
                     inputs[nextIndex].focus();
                 }
                 else {
-                    // Check completion when reaching last input
-                    checkQuizCompletion(inputs, table);
+                    // Check if all questions are completed
+                    setTimeout(() => {
+                        const allInputs = quizContainer.querySelectorAll('input[type="number"]');
+                        const allAnswered = Array.from(allInputs).every(inp => {
+                            const val = parseInt(inp.value);
+                            const answer = parseInt(inp.dataset.answer || "0");
+                            return val === answer;
+                        });
+                        if (allAnswered) {
+                            stopTimer();
+                            const elapsed = Date.now() - startTime;
+                            if (!usedHelp && elapsed <= 60000) {
+                                triggerCelebration();
+                            }
+                        }
+                    }, 10);
                 }
             }
             else if (input.value !== "") {
