@@ -59,6 +59,21 @@ resetBtnMultiplication.addEventListener("click", () => {
     celebrationEl.style.display = "none";
     document.body.style.background = "white";
 });
+// Check if quiz is complete
+function checkQuizCompletion(inputs, table) {
+    const allCorrect = inputs.every(input => {
+        const val = parseInt(input.value);
+        const expectedAnswer = table * (inputs.indexOf(input) + 1);
+        return val === expectedAnswer;
+    });
+    if (allCorrect) {
+        stopTimer();
+        const elapsed = Date.now() - startTime;
+        if (!usedHelp && elapsed <= 60000) {
+            triggerCelebration(); // 🎉 celebrate
+        }
+    }
+}
 // Generate Quiz
 function generateQuiz(table) {
     quizContainer.innerHTML = "";
@@ -92,6 +107,8 @@ function generateQuiz(table) {
             resultCell.innerHTML = `✅ Correct Answer: ${correctAnswer}`;
             resultCell.className = "correct";
             showBtn.disabled = true;
+            // Check if quiz is complete after showing answer
+            checkQuizCompletion(inputs, table);
         });
         inputCell.appendChild(input);
         inputCell.appendChild(showBtn);
@@ -108,11 +125,8 @@ function generateQuiz(table) {
                     inputs[nextIndex].focus();
                 }
                 else {
-                    stopTimer();
-                    const elapsed = Date.now() - startTime;
-                    if (!usedHelp && elapsed <= 60000) {
-                        triggerCelebration(); // 🎉 celebrate
-                    }
+                    // Check completion when reaching last input
+                    checkQuizCompletion(inputs, table);
                 }
             }
             else if (input.value !== "") {
