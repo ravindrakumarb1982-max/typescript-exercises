@@ -15,30 +15,67 @@ function generateRandomNumber() {
 }
 function generateSubtractionQuiz() {
     subtractionQuizContainer.innerHTML = ""; // Clear old content
-    const num1 = generateRandomNumber();
-    const num2 = generateRandomNumber();
+    let num1 = generateRandomNumber();
+    let num2 = generateRandomNumber();
+    // Ensure num1 is always larger than num2
+    if (num1 < num2) {
+        [num1, num2] = [num2, num1]; // Swap the numbers
+    }
     // Split numbers into digits
     const num1Digits = num1.toString().split('');
     const num2Digits = num2.toString().split('');
     const tbl = document.createElement("table");
-    const headerRow = document.createElement("tr");
-    headerRow.innerHTML = "<th>Borrow</th><th>Subtraction</th>";
-    tbl.appendChild(headerRow);
     // Create rows for borrow inputs
     const borrowRow = document.createElement("tr");
-    borrowRow.innerHTML = `<td>
-        <label>Hundreds: </label><input type="number" id="borrowHundreds" placeholder="0" min="0" max="9" />
-        <label>Tens: </label><input type="number" id="borrowTens" placeholder="0" min="0" max="9" />
-        <label>Ones: </label><input type="number" id="borrowOnes" placeholder="0" min="0" max="9" />
+    borrowRow.innerHTML = `<td colspan="2">
+        <div style="display: flex; align-items: center; justify-content: center; margin: 20px 0;">
+            <div style="margin-right: 20px; width: 30px;"></div>
+            <div class="number-row">
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                    <label style="font-size: 14px; margin-bottom: 5px;">Hundreds</label>
+                    <input type="number" id="borrowHundreds" placeholder="0" min="0" max="9" style="width: 50px; height: 30px; text-align: center;" />
+                </div>
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                    <label style="font-size: 14px; margin-bottom: 5px;">Tens</label>
+                    <input type="number" id="borrowTens" placeholder="0" min="0" max="9" style="width: 50px; height: 30px; text-align: center;" />
+                </div>
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                    <label style="font-size: 14px; margin-bottom: 5px;">Ones</label>
+                    <input type="number" id="borrowOnes" placeholder="0" min="0" max="9" style="width: 50px; height: 30px; text-align: center;" />
+                </div>
+            </div>
+        </div>
     </td>`;
     // Display the subtraction problem
     const subtractionRow = document.createElement("tr");
-    subtractionRow.innerHTML = `<td>
-        <div class="number-row">
-            <span>${num1Digits[0]}</span> <span>${num1Digits[1]}</span> <span>${num1Digits[2]}</span>
+    subtractionRow.innerHTML = `<td colspan="2">
+        <div style="display: flex; align-items: center; justify-content: center; margin: 20px 0;">
+            <div style="margin-right: 20px; font-size: 24px; width: 30px;"></div>
+            <div class="number-row">
+                <div class="number-box">${num1Digits[0]}</div>
+                <div class="number-box">${num1Digits[1]}</div>
+                <div class="number-box">${num1Digits[2]}</div>
+            </div>
         </div>
-        <div class="number-row">
-            - <span>${num2Digits[0]}</span> <span>${num2Digits[1]}</span> <span>${num2Digits[2]}</span>
+        <div style="display: flex; align-items: center; justify-content: center; margin: 20px 0;">
+            <div style="margin-right: 20px; font-size: 24px; width: 30px; text-align: center;">-</div>
+            <div class="number-row">
+                <div class="number-box">${num2Digits[0]}</div>
+                <div class="number-box">${num2Digits[1]}</div>
+                <div class="number-box">${num2Digits[2]}</div>
+            </div>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: center; margin: 10px 0;">
+            <div style="margin-right: 20px; width: 30px;"></div>
+            <div style="border-top: 2px solid #333; width: 180px;"></div>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: center; margin: 20px 0;">
+            <div style="margin-right: 20px; width: 30px;"></div>
+            <div class="number-row">
+                <input type="number" class="answer-input" id="answerHundreds" placeholder="?" min="0" max="9" />
+                <input type="number" class="answer-input" id="answerTens" placeholder="?" min="0" max="9" />
+                <input type="number" class="answer-input" id="answerOnes" placeholder="?" min="0" max="9" />
+            </div>
         </div>
     </td>`;
     tbl.appendChild(borrowRow);
@@ -47,23 +84,28 @@ function generateSubtractionQuiz() {
     const borrowHundreds = document.getElementById("borrowHundreds");
     const borrowTens = document.getElementById("borrowTens");
     const borrowOnes = document.getElementById("borrowOnes");
-    borrowHundreds.addEventListener("input", updateSubtraction);
-    borrowTens.addEventListener("input", updateSubtraction);
-    borrowOnes.addEventListener("input", updateSubtraction);
-    function updateSubtraction() {
-        // Ensure the input values are treated as numbers
-        const borrowedHundreds = parseInt(borrowHundreds.value) || 0;
-        const borrowedTens = parseInt(borrowTens.value) || 0;
-        const borrowedOnes = parseInt(borrowOnes.value) || 0;
-        // Ensure we're performing arithmetic with numbers
-        const resultHundreds = (parseInt(num1Digits[0]) - parseInt(num2Digits[0])) - borrowedHundreds;
-        const resultTens = (parseInt(num1Digits[1]) - parseInt(num2Digits[1])) - borrowedTens;
-        const resultOnes = (parseInt(num1Digits[2]) - parseInt(num2Digits[2])) - borrowedOnes;
-        const result = `${resultHundreds} ${resultTens} ${resultOnes}`;
-        // Display the updated result
-        const resultRow = document.createElement("tr");
-        resultRow.className = "answer-row";
-        resultRow.innerHTML = `<td colspan="2">${result}</td>`;
-        tbl.appendChild(resultRow);
+    const answerHundreds = document.getElementById("answerHundreds");
+    const answerTens = document.getElementById("answerTens");
+    const answerOnes = document.getElementById("answerOnes");
+    // Calculate the correct answer
+    const correctAnswer = num1 - num2;
+    const correctDigits = correctAnswer.toString().padStart(3, '0').split('');
+    // Add validation for answer inputs
+    answerHundreds.addEventListener("input", () => checkAnswer(answerHundreds, correctDigits[0]));
+    answerTens.addEventListener("input", () => checkAnswer(answerTens, correctDigits[1]));
+    answerOnes.addEventListener("input", () => checkAnswer(answerOnes, correctDigits[2]));
+    function checkAnswer(input, correctDigit) {
+        if (input.value === correctDigit) {
+            input.style.backgroundColor = "#d4edda";
+            input.style.borderColor = "#28a745";
+        }
+        else if (input.value !== "") {
+            input.style.backgroundColor = "#f8d7da";
+            input.style.borderColor = "#dc3545";
+        }
+        else {
+            input.style.backgroundColor = "";
+            input.style.borderColor = "#007BFF";
+        }
     }
 }

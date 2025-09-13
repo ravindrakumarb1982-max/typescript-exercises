@@ -38,11 +38,41 @@
         .number-row {
             font-size: 20px;
             margin: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .number-box {
+            border: 2px solid #333;
+            padding: 10px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            background-color: #f9f9f9;
         }
         .answer-row {
             font-size: 22px;
             margin: 20px;
             font-weight: bold;
+        }
+        .answer-input {
+            width: 50px;
+            height: 40px;
+            font-size: 18px;
+            text-align: center;
+            border: 2px solid #007BFF;
+            margin: 0 5px;
+        }
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        td {
+            padding: 15px;
+            vertical-align: top;
         }
     </style>
 </head>
@@ -54,6 +84,6 @@
 
 <div id="quizContainer"></div>
 
-<script src="dist/tables/script.js"></script>
+<script src="dist/tables/subtraction.js"></script>
 </body>
 </html>
