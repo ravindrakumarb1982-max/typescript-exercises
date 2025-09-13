@@ -1,217 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
-    <title>Multiplication Table Practice</title>
+    <title>Math Practice - Home</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            background: white;
+            text-align: center;
+            margin: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: white;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        .practice-links {
             display: flex;
-        }
-
-        .sidebar {
-            width: 200px;
-            background-color: #f8f9fa;
-            padding: 20px;
-            border-right: 2px solid #dee2e6;
-            height: 100vh;
-            box-sizing: border-box;
-        }
-
-        .sidebar h3 {
-            margin-top: 0;
-            color: #333;
-            text-align: center;
-        }
-
-        .sidebar ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .sidebar li {
-            margin: 10px 0;
-        }
-
-        .sidebar a {
-            text-decoration: none;
-            color: #007BFF;
-            padding: 10px;
-            display: block;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .sidebar a:hover {
-            background-color: #e9ecef;
-        }
-
-        .sidebar a.active {
-            background-color: #007BFF;
-            color: white;
-        }
-
-        .main-content {
-            flex: 1;
-            padding: 20px;
-            text-align: center;
-        }
-
-        select,
-        button {
-            padding: 8px 14px;
-            margin: 10px 5px;
-            font-size: 16px;
-        }
-
-        table {
-            margin: 20px auto;
-            border-collapse: collapse;
-            width: 60%;
-        }
-
-        td,
-        th {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: center;
-            font-size: 18px;
-        }
-
-        input {
-            width: 60px;
-            font-size: 16px;
-            text-align: center;
-        }
-
-        .correct {
-            color: green;
-            font-weight: bold;
-        }
-
-        .wrong {
-            color: red;
-            font-weight: bold;
-        }
-
-        button {
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            color: white;
-        }
-
-        #startBtn {
-            background-color: #007BFF;
-        }
-
-        #startBtn:hover {
-            background-color: #0056b3;
-        }
-
-        #resetBtn {
-            background-color: #FF9800;
-        }
-
-        #resetBtn:hover {
-            background-color: #e68900;
-        }
-
-        #timer {
-            font-size: 18px;
-            font-weight: bold;
-            margin-left: 15px;
-            display: inline-block;
-            color: #333;
-        }
-
-        .showAnswerBtn {
-            background-color: #28a745;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-
-        .showAnswerBtn:hover {
-            background-color: #218838;
-        }
-
-        .showAnswerBtn:disabled {
-            background-color: #ccc;
-            cursor: not-allowed;
-        }
-
-        #celebration {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: 9999;
-            text-align: center;
+            gap: 30px;
             justify-content: center;
-            align-items: center;
-            flex-direction: column;
+            flex-wrap: wrap;
         }
-
-        #celebration img {
-            max-width: 400px;
-            margin: 20px auto;
+        .practice-card {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 15px;
+            text-decoration: none;
+            color: white;
+            transition: transform 0.3s, background 0.3s;
+            min-width: 200px;
         }
-
-        #celebration p {
-            font-size: 40px;
-            color: gold;
-            font-weight: bold;
+        .practice-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .practice-card h3 {
+            margin: 0 0 15px 0;
+            font-size: 1.5em;
+        }
+        .practice-card p {
+            margin: 0;
+            font-size: 1em;
+            opacity: 0.8;
         }
     </style>
 </head>
-
 <body>
-    <div class="sidebar">
-        <h3>Math Practice</h3>
-        <ul>
-            <li><a href="subtraction.html">Subtraction with Borrowing</a></li>
-            <li><a href="index.html" class="active">Multiplication Tables</a></li>
-        </ul>
-    </div>
-
-    <div class="main-content">
-        <h1>Multiplication Table Practice</h1>
-
-        <label for="tableSelect">Choose a Table:</label>
-        <select id="tableSelect">
-            <option value="2">2 Times</option>
-            <option value="3">3 Times</option>
-            <option value="4">4 Times</option>
-            <option value="5">5 Times</option>
-            <option value="6">6 Times</option>
-            <option value="7">7 Times</option>
-            <option value="8">8 Times</option>
-            <option value="9">9 Times</option>
-            <option value="10">10 Times</option>
-        </select>
-        <button id="startBtn">Start</button>
-        <button id="resetBtn">Reset</button>
-        <span id="timer">00:00:00:000</span>
-
-        <div id="celebration">
-            <img src="./imagedb/fireworks-9582.gif" alt="Fireworks Celebration" />
-            <p>🎉 Great Job! 🎉</p>
+    <div class="container">
+        <h1>🧮 Math Practice</h1>
+        <p>Choose a practice mode to improve your math skills!</p>
+        
+        <div class="practice-links">
+            <a href="subtraction.html" class="practice-card">
+                <h3>➖ Subtraction</h3>
+                <p>Practice subtraction with borrowing using 3-digit numbers</p>
+            </a>
+            
+            <a href="tables.html" class="practice-card">
+                <h3>✖️ Multiplication</h3>
+                <p>Master multiplication tables with timed practice</p>
+            </a>
         </div>
-
-        <div id="quizContainer"></div>
     </div>
-
-    <script src="script.js"></script>
 </body>
-
 </html>
