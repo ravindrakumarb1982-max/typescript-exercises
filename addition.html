@@ -12,6 +12,14 @@
             min-height: 100vh;
             color: white;
         }
+        
+        /* Force number visibility */
+        .number-box,
+        .number-box *,
+        div[class*="number-box"] {
+            color: #000 !important;
+            background-color: white !important;
+        }
         .sidebar {
             width: 200px;
             background: rgba(255, 255, 255, 0.15);
@@ -64,6 +72,15 @@
             border-radius: 20px;
             backdrop-filter: blur(10px);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        .practice-container .number-box {
+            color: #000 !important;
+        }
+        div.number-box {
+            color: #000 !important;
+        }
+        .number-box * {
+            color: #000 !important;
         }
         h1 {
             color: white;
@@ -119,7 +136,9 @@
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            background-color: #f9f9f9;
+            background-color: white;
+            color: #000 !important;
+            font-size: 20px;
         }
         .answer-row {
             font-size: 22px;
@@ -133,6 +152,8 @@
             text-align: center;
             border: 2px solid #28a745;
             margin: 0 5px;
+            background-color: white;
+            color: #333;
         }
         table {
             margin: 0 auto;
@@ -141,6 +162,11 @@
         td {
             padding: 15px;
             vertical-align: top;
+        }
+        table .number-box {
+            color: #000 !important;
+            background: white !important;
+            border: 2px solid #333 !important;
         }
     </style>
 </head>
