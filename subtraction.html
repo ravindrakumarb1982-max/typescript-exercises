@@ -65,6 +65,9 @@
             backdrop-filter: blur(10px);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
+        .practice-container .number-box {
+            color: #000 !important;
+        }
         h1 {
             color: white;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
@@ -119,7 +122,9 @@
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            background-color: #f9f9f9;
+            background-color: white;
+            color: #000 !important;
+            font-size: 20px;
         }
         .answer-row {
             font-size: 22px;
@@ -133,6 +138,8 @@
             text-align: center;
             border: 2px solid #007BFF;
             margin: 0 5px;
+            background-color: white;
+            color: #333;
         }
         table {
             margin: 0 auto;
@@ -141,6 +148,9 @@
         td {
             padding: 15px;
             vertical-align: top;
+        }
+        table * {
+            color: inherit;
         }
     </style>
 </head>

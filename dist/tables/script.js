@@ -39,11 +39,11 @@ function resetTimer() {
 }
 // 🎉 Celebration function
 function triggerCelebration() {
-    celebrationEl.style.display = "block";
+    celebrationEl.classList.add("show");
     document.body.style.background = "linear-gradient(to right, #ffecd2, #fcb69f)";
     setTimeout(() => {
-        celebrationEl.style.display = "none";
-        document.body.style.background = "white";
+        celebrationEl.classList.remove("show");
+        document.body.style.background = "linear-gradient(135deg, #667eea 0%, #764ba2 100%)";
     }, 4000); // show for 4 seconds
 }
 // Event Listeners
@@ -56,8 +56,8 @@ startBtnMultiplication.addEventListener("click", () => {
 resetBtnMultiplication.addEventListener("click", () => {
     quizContainer.innerHTML = "";
     resetTimer();
-    celebrationEl.style.display = "none";
-    document.body.style.background = "white";
+    celebrationEl.classList.remove("show");
+    document.body.style.background = "linear-gradient(135deg, #667eea 0%, #764ba2 100%)";
 });
 // Check if quiz is complete
 function checkQuizCompletion(inputs, table) {
