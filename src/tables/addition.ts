@@ -34,6 +34,7 @@ function generateAdditionQuiz() {
         <div style="display: flex; align-items: center; justify-content: center; margin: 20px 0;">
             <div style="margin-right: 20px; width: 30px;"></div>
             <div class="number-row">
+                <div style="width: 60px;"></div>
                 <div style="display: flex; flex-direction: column; align-items: center;">
                     <label style="font-size: 14px; margin-bottom: 5px;">Carry</label>
                     <input type="number" id="carryHundreds" placeholder="0" min="0" max="9" style="width: 50px; height: 30px; text-align: center;" />
@@ -56,6 +57,7 @@ function generateAdditionQuiz() {
         <div style="display: flex; align-items: center; justify-content: center; margin: 20px 0;">
             <div style="margin-right: 20px; font-size: 24px; width: 30px;"></div>
             <div class="number-row">
+                <div style="width: 60px;"></div>
                 <div class="number-box">${num1Digits[0]}</div>
                 <div class="number-box">${num1Digits[1]}</div>
                 <div class="number-box">${num1Digits[2]}</div>
@@ -64,6 +66,7 @@ function generateAdditionQuiz() {
         <div style="display: flex; align-items: center; justify-content: center; margin: 20px 0;">
             <div style="margin-right: 20px; font-size: 24px; width: 30px; text-align: center;">+</div>
             <div class="number-row">
+                <div style="width: 60px;"></div>
                 <div class="number-box">${num2Digits[0]}</div>
                 <div class="number-box">${num2Digits[1]}</div>
                 <div class="number-box">${num2Digits[2]}</div>
@@ -71,7 +74,7 @@ function generateAdditionQuiz() {
         </div>
         <div style="display: flex; align-items: center; justify-content: center; margin: 10px 0;">
             <div style="margin-right: 20px; width: 30px;"></div>
-            <div style="border-top: 2px solid #333; width: 180px;"></div>
+            <div style="border-top: 2px solid #333; width: 240px;"></div>
         </div>
         <div style="display: flex; align-items: center; justify-content: center; margin: 20px 0;">
             <div style="margin-right: 20px; width: 30px;"></div>
@@ -92,7 +95,7 @@ function generateAdditionQuiz() {
     const carryHundreds = document.getElementById("carryHundreds") as HTMLInputElement;
     const carryTens = document.getElementById("carryTens") as HTMLInputElement;
     const carryOnes = document.getElementById("carryOnes") as HTMLInputElement;
-    
+
     const answerThousands = document.getElementById("answerThousands") as HTMLInputElement;
     const answerHundreds = document.getElementById("answerHundreds") as HTMLInputElement;
     const answerTens = document.getElementById("answerTens") as HTMLInputElement;
