@@ -8,19 +8,24 @@
             font-family: Arial, sans-serif;
             margin: 0;
             display: flex;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: white;
         }
         .sidebar {
             width: 200px;
-            background-color: #f8f9fa;
+            background: rgba(255, 255, 255, 0.15);
             padding: 20px;
-            border-right: 2px solid #dee2e6;
+            border-right: 2px solid rgba(255, 255, 255, 0.2);
             height: 100vh;
             box-sizing: border-box;
+            backdrop-filter: blur(10px);
         }
         .sidebar h3 {
             margin-top: 0;
-            color: #333;
+            color: white;
             text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         .sidebar ul {
             list-style: none;
@@ -31,23 +36,39 @@
         }
         .sidebar a {
             text-decoration: none;
-            color: #007BFF;
+            color: white;
             padding: 10px;
             display: block;
             border-radius: 5px;
             transition: background-color 0.3s;
+            background: rgba(255, 255, 255, 0.1);
         }
         .sidebar a:hover {
-            background-color: #e9ecef;
+            background: rgba(255, 255, 255, 0.2);
         }
         .sidebar a.active {
-            background-color: #007BFF;
+            background: rgba(255, 255, 255, 0.3);
             color: white;
+            font-weight: bold;
         }
         .main-content {
             flex: 1;
             padding: 20px;
             text-align: center;
+        }
+        .practice-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
         }
         input {
             width: 60px;
@@ -60,20 +81,27 @@
             border-radius: 8px;
             cursor: pointer;
             color: white;
-            padding: 8px 14px;
+            padding: 12px 20px;
             margin: 10px 5px;
+            font-size: 16px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
         }
         #startBtn {
-            background-color: #007BFF; /* Blue */
+            background: linear-gradient(45deg, #dc3545, #e91e63);
         }
         #startBtn:hover {
-            background-color: #0056b3;
+            background: linear-gradient(45deg, #c82333, #c2185b);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
         #resetBtn {
-            background-color: #FF9800; /* Orange */
+            background: linear-gradient(45deg, #FF9800, #ff7043);
         }
         #resetBtn:hover {
-            background-color: #e68900;
+            background: linear-gradient(45deg, #e68900, #e64a19);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
         .number-row {
             font-size: 20px;
@@ -128,12 +156,14 @@
 </div>
 
 <div class="main-content">
-    <h1>Subtraction with Borrowing Practice</h1>
+    <div class="practice-container">
+        <h1>Subtraction with Borrowing Practice</h1>
 
-    <button id="startBtn">Start</button>
-    <button id="resetBtn" disabled>Reset</button>
+        <button id="startBtn">Start</button>
+        <button id="resetBtn" disabled>Reset</button>
 
-    <div id="quizContainer"></div>
+        <div id="quizContainer"></div>
+    </div>
 </div>
 
 <script src="dist/tables/subtraction.js"></script>
