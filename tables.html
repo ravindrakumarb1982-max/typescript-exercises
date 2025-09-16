@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Multiplication Table Practice</title>
     <style>
         body {
@@ -28,7 +29,7 @@
             margin-top: 0;
             color: white;
             text-align: center;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .sidebar ul {
@@ -78,7 +79,7 @@
 
         h1 {
             color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
             margin-bottom: 30px;
         }
 
@@ -204,6 +205,7 @@
             align-items: center;
             flex-direction: column;
         }
+
         #celebration.show {
             display: flex;
         }
@@ -218,11 +220,202 @@
             color: gold;
             font-weight: bold;
         }
+
+        /* Burger Menu Styles */
+        .burger-menu {
+            display: none;
+            position: fixed;
+            top: 15px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 8px;
+            padding: 12px;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .burger-menu span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 5px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .burger-menu.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .burger-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .burger-menu.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        /* Mobile Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+
+            .burger-menu {
+                display: block;
+            }
+
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 250px;
+                height: 100vh;
+                padding: 60px 20px 20px;
+                border-right: 2px solid rgba(255, 255, 255, 0.2);
+                border-bottom: none;
+                transition: left 0.3s ease;
+                z-index: 999;
+            }
+
+            .sidebar.active {
+                left: 0;
+            }
+
+            .sidebar ul {
+                display: block;
+            }
+
+            .sidebar li {
+                margin: 5px;
+            }
+
+            .sidebar a {
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+
+            .main-content {
+                padding: 10px;
+            }
+
+            .practice-container {
+                padding: 20px;
+                margin: 10px auto;
+            }
+
+            h1 {
+                font-size: 1.8em;
+                margin-bottom: 20px;
+            }
+
+            select {
+                padding: 10px 14px;
+                font-size: 14px;
+            }
+
+            button {
+                padding: 10px 16px;
+                font-size: 14px;
+                margin: 8px 3px;
+                display: inline-block;
+            }
+            
+            .button-group {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                flex-wrap: wrap;
+            }
+
+            #timer {
+                font-size: 16px;
+                padding: 6px 12px;
+                margin: 10px auto;
+                display: block;
+                max-width: 200px;
+                text-align: center;
+            }
+
+            table {
+                width: 100%;
+                font-size: 14px;
+            }
+
+            td,
+            th {
+                padding: 8px;
+                font-size: 14px;
+            }
+
+            input {
+                width: 50px;
+                font-size: 14px;
+            }
+
+            .showAnswerBtn {
+                padding: 4px 8px;
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sidebar h3 {
+                font-size: 1.2em;
+            }
+
+            .sidebar a {
+                padding: 6px 10px;
+                font-size: 12px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .practice-container {
+                padding: 15px;
+            }
+
+            table {
+                font-size: 12px;
+            }
+
+            td,
+            th {
+                padding: 6px;
+                font-size: 12px;
+            }
+
+            input {
+                width: 40px;
+                font-size: 12px;
+            }
+
+            #celebration p {
+                font-size: 28px;
+            }
+
+            #celebration img {
+                max-width: 250px;
+            }
+        }
     </style>
 </head>
 
 <body>
-    <div class="sidebar">
+    <button class="burger-menu" id="burgerMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <div class="sidebar" id="sidebar">
         <h3>Math Practice</h3>
         <ul>
             <li><a href="index.html">🏠 Home</a></li>
@@ -248,8 +441,12 @@
                 <option value="9">9 Times</option>
                 <option value="10">10 Times</option>
             </select>
-            <button id="startBtn">Start</button>
-            <button id="resetBtn">Reset</button>
+            
+            <div class="button-group">
+                <button id="startBtn">Start</button>
+                <button id="resetBtn">Reset</button>
+            </div>
+            
             <span id="timer">00:00:00:000</span>
 
             <!-- Celebration Banner -->
@@ -264,6 +461,35 @@
 
     <!-- Load compiled TypeScript (JS file from dist) -->
     <script src="dist/tables/script.js"></script>
+    <script>
+        // Burger menu functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const burgerMenu = document.getElementById('burgerMenu');
+            const sidebar = document.getElementById('sidebar');
+
+            burgerMenu.addEventListener('click', function () {
+                burgerMenu.classList.toggle('active');
+                sidebar.classList.toggle('active');
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function (event) {
+                if (!sidebar.contains(event.target) && !burgerMenu.contains(event.target)) {
+                    burgerMenu.classList.remove('active');
+                    sidebar.classList.remove('active');
+                }
+            });
+
+            // Close menu when clicking on a link
+            const sidebarLinks = sidebar.querySelectorAll('a');
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    burgerMenu.classList.remove('active');
+                    sidebar.classList.remove('active');
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

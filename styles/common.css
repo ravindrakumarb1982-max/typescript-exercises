@@ -1,0 +1,440 @@
+/* Common styles for all math practice pages */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    display: flex;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: white;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 200px;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 20px;
+    border-right: 2px solid rgba(255, 255, 255, 0.2);
+    height: 100vh;
+    box-sizing: border-box;
+    backdrop-filter: blur(10px);
+}
+
+.sidebar h3 {
+    margin-top: 0;
+    color: white;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin: 10px 0;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    display: block;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar a.active {
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+    font-weight: bold;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+}
+
+.practice-container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 40px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 16px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #333;
+}
+
+h1 {
+    color: white;
+    font-weight: 600;
+    margin-bottom: 30px;
+    font-size: 2.2em;
+    text-align: center;
+}
+
+/* Button Styles */
+button {
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    color: white;
+    padding: 14px 28px;
+    margin: 10px 8px;
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 25px 0;
+}
+
+/* Number Display */
+.number-row {
+    font-size: 20px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.number-box {
+    border: none;
+    padding: 12px;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    background: white;
+    color: #2c3e50 !important;
+    font-size: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.number-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Force number visibility */
+.number-box,
+.number-box *,
+div[class*="number-box"] {
+    color: #2c3e50 !important;
+    background-color: white !important;
+}
+
+.practice-container .number-box {
+    color: #2c3e50 !important;
+}
+
+div.number-box {
+    color: #2c3e50 !important;
+}
+
+.number-box * {
+    color: #2c3e50 !important;
+}
+
+table .number-box {
+    color: #2c3e50 !important;
+    background: white !important;
+    border: none !important;
+}
+
+/* Label Styles */
+label {
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    opacity: 1;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Answer Input Styles */
+.answer-input {
+    width: 50px;
+    height: 45px;
+    font-size: 18px;
+    text-align: center;
+    border: 2px solid #e1e5e9;
+    margin: 0 6px;
+    background-color: white;
+    color: #2c3e50;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.answer-input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+    transform: scale(1.05);
+}
+
+/* Table Styles */
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 500px;
+}
+
+td {
+    padding: 15px;
+    vertical-align: top;
+    text-align: center;
+}
+
+/* Ensure all content in tables is centered */
+table td>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Center the math problem layout */
+table .number-row {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Burger Menu Styles */
+.burger-menu {
+    display: none;
+    position: fixed;
+    top: -7px;
+    right: 20px;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.burger-menu span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 5px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+.burger-menu.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.burger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    .burger-menu {
+        display: block;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 250px;
+        height: 100vh;
+        padding: 60px 20px 20px;
+        border-right: 2px solid rgba(255, 255, 255, 0.2);
+        border-bottom: none;
+        transition: left 0.3s ease;
+        z-index: 999;
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+
+    .sidebar ul {
+        display: block;
+    }
+
+    .sidebar li {
+        margin: 15px 0;
+    }
+
+    .sidebar a {
+        padding: 12px 16px;
+        font-size: 16px;
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .main-content {
+        padding: 10px;
+        width: 100%;
+    }
+
+    .practice-container {
+        padding: 20px 15px;
+        margin: 10px auto;
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+
+    .number-box {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+        padding: 8px;
+    }
+
+    .answer-input {
+        width: 40px;
+        height: 35px;
+        font-size: 16px;
+    }
+
+    button {
+        padding: 10px 16px;
+        font-size: 14px;
+        margin: 8px 3px;
+        display: inline-block;
+    }
+
+    .button-group {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        flex-wrap: wrap;
+        margin: 25px 0;
+    }
+
+    /* Mobile table centering */
+    table {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    td {
+        padding: 10px 5px;
+        text-align: center;
+    }
+
+    /* Ensure mobile centering for math problems */
+    table td>div {
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+        text-align: center !important;
+    }
+
+    /* Fix carry labels visibility */
+    label {
+        color: white !important;
+        font-weight: bold !important;
+        font-size: 14px !important;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5) !important;
+        opacity: 1 !important;
+    }
+
+    .number-row {
+        margin: 15px 0;
+        gap: 8px;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar h3 {
+        font-size: 1.2em;
+    }
+
+    .sidebar a {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .number-box {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+        padding: 6px;
+    }
+
+    .answer-input {
+        width: 35px;
+        height: 30px;
+        font-size: 14px;
+    }
+
+    .practice-container {
+        padding: 15px;
+    }
+
+    /* Ensure labels are clearly visible on small screens */
+    label {
+        color: white !important;
+        font-weight: bold !important;
+        font-size: 13px !important;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5) !important;
+        opacity: 1 !important;
+        margin-bottom: 4px !important;
+        display: block !important;
+    }
+
+    .number-row {
+        gap: 6px;
+        margin: 12px 0;
+    }
+}

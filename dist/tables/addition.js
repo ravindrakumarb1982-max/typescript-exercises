@@ -29,15 +29,15 @@ function generateAdditionQuiz() {
             <div class="number-row">
                 <div style="width: 60px;"></div>
                 <div style="display: flex; flex-direction: column; align-items: center;">
-                    <label style="font-size: 14px; margin-bottom: 5px;">Carry</label>
+                    <label for="carryHundreds" style="font-size: 14px; margin-bottom: 5px;">Carry</label>
                     <input type="number" id="carryHundreds" placeholder="0" min="0" max="9" style="width: 50px; height: 30px; text-align: center;" />
                 </div>
                 <div style="display: flex; flex-direction: column; align-items: center;">
-                    <label style="font-size: 14px; margin-bottom: 5px;">Carry</label>
+                    <label for="carryTens" style="font-size: 14px; margin-bottom: 5px;">Carry</label>
                     <input type="number" id="carryTens" placeholder="0" min="0" max="9" style="width: 50px; height: 30px; text-align: center;" />
                 </div>
                 <div style="display: flex; flex-direction: column; align-items: center;">
-                    <label style="font-size: 14px; margin-bottom: 5px;">Carry</label>
+                    <label for="carryOnes" style="font-size: 14px; margin-bottom: 5px;">Carry</label>
                     <input type="number" id="carryOnes" placeholder="0" min="0" max="9" style="width: 50px; height: 30px; text-align: center;" />
                 </div>
             </div>

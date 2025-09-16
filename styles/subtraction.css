@@ -1,0 +1,35 @@
+/* Subtraction-specific styles */
+
+#startBtn {
+    background: linear-gradient(45deg, #007BFF, #0056b3);
+}
+
+#startBtn:hover {
+    background: linear-gradient(45deg, #0056b3, #004085);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+#resetBtn {
+    background: linear-gradient(45deg, #FF9800, #ff7043);
+}
+
+#resetBtn:hover {
+    background: linear-gradient(45deg, #e68900, #e64a19);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Subtraction-specific input styling */
+input {
+    width: 60px;
+    font-size: 16px;
+    text-align: center;
+    margin: 5px;
+}
+
+.answer-row {
+    font-size: 22px;
+    margin: 20px;
+    font-weight: bold;
+}

@@ -32,15 +32,15 @@ function generateSubtractionQuiz() {
             <div style="margin-right: 20px; width: 30px;"></div>
             <div class="number-row">
                 <div style="display: flex; flex-direction: column; align-items: center;">
-                    <label style="font-size: 14px; margin-bottom: 5px;">Hundreds</label>
+                    <label for="borrowHundreds" style="font-size: 14px; margin-bottom: 5px;">Hundreds</label>
                     <input type="number" id="borrowHundreds" placeholder="0" min="0" max="9" style="width: 50px; height: 30px; text-align: center;" />
                 </div>
                 <div style="display: flex; flex-direction: column; align-items: center;">
-                    <label style="font-size: 14px; margin-bottom: 5px;">Tens</label>
+                    <label for="borrowTens" style="font-size: 14px; margin-bottom: 5px;">Tens</label>
                     <input type="number" id="borrowTens" placeholder="0" min="0" max="9" style="width: 50px; height: 30px; text-align: center;" />
                 </div>
                 <div style="display: flex; flex-direction: column; align-items: center;">
-                    <label style="font-size: 14px; margin-bottom: 5px;">Ones</label>
+                    <label for="borrowOnes" style="font-size: 14px; margin-bottom: 5px;">Ones</label>
                     <input type="number" id="borrowOnes" placeholder="0" min="0" max="9" style="width: 50px; height: 30px; text-align: center;" />
                 </div>
             </div>
