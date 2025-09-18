@@ -1,71 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>➖ Subtraction with Borrowing Practice</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧮</text></svg>">
     <link rel="stylesheet" href="styles/common.css">
     <link rel="stylesheet" href="styles/subtraction.css">
 </head>
+
 <body>
-<button class="burger-menu" id="burgerMenu">
-    <span></span>
-    <span></span>
-    <span></span>
-</button>
+    <button class="burger-menu" id="burgerMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
 
-<div class="sidebar" id="sidebar">
-    <h3>Math Practice</h3>
-    <ul>
-        <li><a href="index.html">🏠 Home</a></li>
-        <li><a href="addition.html">Addition with Carrying</a></li>
-        <li><a href="subtraction.html" class="active">Subtraction with Borrowing</a></li>
-        <li><a href="tables.html">Multiplication Tables</a></li>
-    </ul>
-</div>
-
-<div class="main-content">
-    <div class="practice-container">
-        <h1>Subtraction with Borrowing Practice</h1>
-
-        <div class="button-group">
-            <button id="startBtn">Start</button>
-            <button id="resetBtn" disabled>Reset</button>
-        </div>
-
-        <div id="quizContainer"></div>
+    <div class="sidebar" id="sidebar">
+        <h3>Math Practice</h3>
+        <ul>
+            <li><a href="index.html">🏠 Home</a></li>
+            <li><a href="addition.html">Addition with Carrying</a></li>
+            <li><a href="subtraction.html" class="active">Subtraction with Borrowing</a></li>
+            <li><a href="tables.html">Multiplication Tables</a></li>
+        </ul>
     </div>
-</div>
 
-<script src="dist/tables/subtraction.js"></script>
-<script>
-// Burger menu functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const burgerMenu = document.getElementById('burgerMenu');
-    const sidebar = document.getElementById('sidebar');
-    
-    burgerMenu.addEventListener('click', function() {
-        burgerMenu.classList.toggle('active');
-        sidebar.classList.toggle('active');
-    });
-    
-    // Close menu when clicking outside
-    document.addEventListener('click', function(event) {
-        if (!sidebar.contains(event.target) && !burgerMenu.contains(event.target)) {
-            burgerMenu.classList.remove('active');
-            sidebar.classList.remove('active');
-        }
-    });
-    
-    // Close menu when clicking on a link
-    const sidebarLinks = sidebar.querySelectorAll('a');
-    sidebarLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            burgerMenu.classList.remove('active');
-            sidebar.classList.remove('active');
+    <div class="main-content">
+        <div class="practice-container">
+            <h1>Subtraction with Borrowing Practice</h1>
+
+            <div class="button-group">
+                <button id="startBtn">Start</button>
+                <button id="resetBtn" disabled>Reset</button>
+            </div>
+
+            <div id="quizContainer"></div>
+        </div>
+    </div>
+
+    <script src="dist/tables/subtraction.js"></script>
+    <script>
+        // Burger menu functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const burgerMenu = document.getElementById('burgerMenu');
+            const sidebar = document.getElementById('sidebar');
+
+            burgerMenu.addEventListener('click', function () {
+                burgerMenu.classList.toggle('active');
+                sidebar.classList.toggle('active');
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function (event) {
+                if (!sidebar.contains(event.target) && !burgerMenu.contains(event.target)) {
+                    burgerMenu.classList.remove('active');
+                    sidebar.classList.remove('active');
+                }
+            });
+
+            // Close menu when clicking on a link
+            const sidebarLinks = sidebar.querySelectorAll('a');
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    burgerMenu.classList.remove('active');
+                    sidebar.classList.remove('active');
+                });
+            });
         });
-    });
-});
-</script>
+    </script>
 </body>
+
 </html>
