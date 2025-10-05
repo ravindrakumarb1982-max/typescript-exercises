@@ -40,6 +40,14 @@
 
 <script src="dist/tables/addition.js"></script>
 <script>
+// Suppress extension-related connection errors
+window.addEventListener('error', function(e) {
+    if (e.message && e.message.includes('Could not establish connection')) {
+        e.preventDefault();
+        return false;
+    }
+});
+
 // Burger menu functionality
 document.addEventListener('DOMContentLoaded', function() {
     const burgerMenu = document.getElementById('burgerMenu');
